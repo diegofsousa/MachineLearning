@@ -31,7 +31,7 @@ class Perceptron:
 				u = 0 # Somatório do produto dos pesos dos sinais de entrada pelos pesos
 				for j in range(self.n_atributos + 1):
 					u += self.pesos[j] * self.amostras[i][j]
-				y = self.degrau(u) # obtém a saída da rede
+				y = self.sinal(u) # obtém a saída da rede
 
 				# verifica se a saida da rede é diferente da saída desejada
 				if y != self.saidas[i]:
@@ -48,13 +48,37 @@ class Perceptron:
 		print(self.pesos)
 		print(n_epocas)
 
+	def teste(self, amostra):
+		amostra.insert(0, -1)
+		u = 0
+		for i in range(self.n_atributos + 1):
+			u += self.pesos[i] * amostra[i]
+		y = self.sinal(u)
+		print('Classe: %d' % y)
+
+
 	def degrau(self, u):
 		if u >= 0:
 			return 1
 		return 0
 
+	def sinal(self, u):
+		if u >= 0:
+			return 1
+		return -1
+
 # OR
-entradas = [[0, 0], [0, 1], [1, 0], [1, 1]]
-saidas = [0, 1, 1, 1]
-rede = Perceptron(entradas, saidas)
+# entradas = [[0, 0], [0, 1], [1, 0], [1, 1]]
+# saidas = [0, 1, 1, 1]
+# rede = Perceptron(entradas, saidas)
+# rede.treinar()
+# rede.teste([1,0])
+
+# outro exemplo
+amostras = [[0.1, 0.4, 0.7], [0.3, 0.7, 0.2],
+			[0.6, 0.9, 0.8], [0.5, 0.7, 0.1]]
+
+saidas = [1, -1, -1, 1]
+rede = Perceptron(amostras, saidas)
 rede.treinar()
+rede.teste([0.3, 0.7, 0.2])
