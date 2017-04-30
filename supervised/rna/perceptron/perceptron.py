@@ -68,13 +68,16 @@ class Perceptron:
 		return -1
 
 # OR
-# entradas = [[0, 0], [0, 1], [1, 0], [1, 1]]
-# saidas = [0, 1, 1, 1]
-# rede = Perceptron(entradas, saidas)
-# rede.treinar()
-# rede.teste([1,0])
+'''
+entradas = [[0, 0], [0, 1], [1, 0], [1, 1]]
+saidas = [0, 1, 1, 1]
+rede = Perceptron(entradas, saidas)
+rede.treinar()
+rede.teste([1,0])
+'''
 
 # outro exemplo
+'''
 amostras = [[0.1, 0.4, 0.7], [0.3, 0.7, 0.2],
 			[0.6, 0.9, 0.8], [0.5, 0.7, 0.1]]
 
@@ -82,3 +85,7 @@ saidas = [1, -1, -1, 1]
 rede = Perceptron(amostras, saidas)
 rede.treinar()
 rede.teste([0.3, 0.7, 0.2])
+'''
+
+# blue or red?
+
